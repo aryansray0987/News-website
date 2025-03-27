@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>News App</title>
+    <link rel="icon" href="favicon.png" type="image/png">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css" integrity="sha512-5Hs3dF2AEPkpNAR7UiOHba+lRSJNeM2ECkwxUIxC1Q/FLycGTbNapWXB4tP889k5T5Ju8fs4b1P5z/iB4nMfSQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body id="top">
+    <div class="feedback-icon-container">
+        <a href="mailto:aryansray0987@gmail.com" class="feedback-icon">
+            <i class="fas fa-comment-dots"></i>
+        </a>
+    </div>
+    
+    <nav class="nav1">
+        <div class="main-nav  flex max-width">
+            <a href="#" onclick="reload()" class="company-logo">
+                <div class="logo"></div>
+            </a>
+            
+            <div class="search-bar flex">
+                <input id="search-text" type="text" class="news-input" placeholder="e.g. Science">
+                <button id="search-button" class="search-button flex">  <i class="fa-solid fa-magnifying-glass fa-beat-fade icon" style="color: #090a0b;"></i>Search</button>
+            </div>
+            <div class="toggle-container flex">
+                <input type="checkbox" id="dark-mode-toggle" />
+                <label for="dark-mode-toggle" class="toggle-label">
+                    <span class="toggle-ball"></span>
+                    <i class="fas fa-sun"></i>
+                    <i class="fas fa-moon"></i>
+                </label>
+            </div>
+            <div class="about">
+                <a href="#top"><button><i class="fa-solid fa-house" style="color: #050505;"></i>Home</button>
+                </a>
+                <a href="./public/feedback_form.html" target="_blank"><button><i class="fa-solid fa-comment fa-beat-fade icon" style="color: #050506;"></i>Feedback</button>
+                </a>
+               
+                <a href="#About-section"><button><i class="fa-solid fa-address-card fa-beat icon" style="color: #050506;"></i>Abous Us</button>
+                </a>
+                <a href="#Contact-us"><button><i class="fa-solid fa-phone fa-shake icon" style="color: #070808;"></i>Contact Us</button>
+                </a>
+                
+            </div>
+        </div>
+    </nav>
+
+    <nav class="nav-section2 nav1">
+       
+            <div class="nav2-links">
+                <ul class="flex">
+                    <li class="hover-link nav-item" id="INDIA" onclick="onNavItemClick('INDIA')">INDIA</li>
+                    <li class="hover-link nav-item" id="World News" onclick="onNavItemClick('World News')">World News</li>
+                    <li class="hover-link nav-item" id="Sports" onclick="onNavItemClick('Sports')">Sports</li>
+                    <li class="hover-link nav-item" id="Business" onclick="onNavItemClick('Business')">Business</li>
+                    <li class="hover-link nav-item" id="Politics" onclick="onNavItemClick('politics')">Politics</li>
+                    <li class="hover-link nav-item" id="ipl" onclick="onNavItemClick('ipl')">IPL</li>
+                    <li class="hover-link nav-item" id="Finance" onclick="onNavItemClick('Finance')">Finance</li>
+                    <li class="hover-link nav-item" id="Technology" onclick="onNavItemClick('Technology')">Technology</li>
+                    <li class="hover-link nav-item" id="Artificial Intelligence" onclick="onNavItemClick('Artificial Intelligence')">Artificial Intelligence</li>
+                    <li class="hover-link nav-item" id="Education" onclick="onNavItemClick('Education')">Education</li>
+                    <li class="hover-link nav-item" id="Health" onclick="onNavItemClick('Health')">Health</li>
+                   
+                </ul>
+            </div>
+            <button class="top-news">Highlights</button>
+            <div class="present-time">
+                <p class="date"></p>
+                <p class="time"></p>
+            </div>
+            </nav>
+    
+
+    <div class="main-container">
+        <main>
+            <div class="cards-container container flex" id="cards-container">
+                
+                
+            </div>
+        </main>
+    </div>
+
+    <template id="template-news-card">
+        <div class="card">
+            <div class="card-header">
+                <img src="https://via.placeholder.com/400x200" alt="news-image" id="news-img">
+            </div>
+            <div class="card-content">
+                <h3 id="news-title">This is the Title</h3>
+                <h6 class="news-source" id="news-source">End Gadget 26/08/2023</h6>
+                <p class="news-desc" id="news-desc">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Recusandae saepe quis voluptatum quisquam vitae doloremque facilis molestias quae ratione cumque!</p>
+            </div>
+        </div>
+    </template>
+    <div class="weather-section">
+        <div class="part1">
+            <h1>Want to know the Weather ?</h1>
+            <h3>Enter the City name and Click on the search button</h3>
+        </div>
+        <div class="part2">
+            <div class="weather-container">
+                <div class="search-section">
+                    <input type="text" id="city" class="search-input" placeholder="Enter city name">
+                    <button id="search" class="search-button">Search</button>
+                </div>
+                <div id="weather-data" class="weather-data">
+                    <!-- Current Weather Details -->
+                </div>
+                <div class="forecast-section">
+                    <div class="forecast-header">4-Day Forecast</div>
+                    <div id="forecast-data" class="forecast-data">
+                        <!-- 4-Day Forecast Details -->
+                    </div>
+                </div>
+            </div>
+        </div>
+       
+         
+    </div>
+   <div class="newsall">
+    <h1>Navigate to Other Famous News Websites for Latest Updates</h1>
+    <div class="slider">
+        <a href="https://timesofindia.indiatimes.com/" target="_blank"><img src="./times.jpeg" alt="" class="slide"  ></a>
+        <a href="https://www.hindustantimes.com/" target="_blank"><img src="./hindu.jpeg" alt="" class="slide"> </a>
+      <a href="https://www.nytimes.com/international/" target="_blank"><img src="./newwork.webp" alt="" class="slide" ></a>
+       <a href="https://www.bbc.com/news" target="_blank"><img src="./bbc.jpg" alt="" class="slide" ></a>
+    </div>
+    <div class="sliderbutton">
+        <button class="previous1 swipe"><i class="fa-solid fa-backward icon" style="color: black;"></i></button>
+    <button class="forward1 swipe" ><i class="fa-solid fa-forward icon" style="color: black;"></i></button>
+    </div>
+   </div>
+
+   <div class="notes">
+    <div class="note1 note"></div>
+    <div class="note2 note">
+        <h1>Notes for News</h1>
+        <p>Effortlessly capture your ideas, thoughts, and important details while exploring the latest news stories, ensuring you stay organized and never miss a moment</p>
+        <h2>Click on Add Notes</h2>
+       <a href="./notes/notes.html" target="_blank"><button class="swipe notebutton">Add Notes</button></a>
+    </div>
+   </div>
+
+    <div class="about-section" id="About-section">
+        <div class="about-us">
+            <h1>About Us</h1>
+            <p>Welcome to Newsify, your ultimate destination for staying informed with the latest and most relevant news across the globe.</p>
+        </div>
+        <div class="card-container">
+            <div class="aboutuscard ourvision">
+                <h2>Our Vision</h2>
+                <img src="./vision_1464393.png" alt="" width="60px" height="60px">
+                <p>Our vision is to empower individuals worldwide with accurate, unbiased news, fostering informed communities through innovation, inclusivity and accesscibility</p>
+            </div>
+            <div class="aboutuscard ourvalues">
+                <h2>Our Values</h2>
+                <img src="./values.png" alt="" width="60px" height="60px">
+                <p>Our values focus on integrity, inclusivity, and accuracy. We prioritize unbiased reporting, diverse perspectives, and transparency, ensuring trust and clarity in every piece of news we deliver.</p>
+            </div>
+            <div class="aboutuscard whatwecover">
+                <h2>What We Cover ?</h2>
+                <img src="./book_3145765.png" alt="" width="60px" height="60px">
+                <p>We bring you breaking news, finance updates, sports highlights, and the latest in tech and entertainment, keeping you updated with global events, innovations, and cultural trends.</p>
+            </div>
+            <div class="aboutuscard whychooseus">
+                <h2>Why Choose Us ?</h2>
+                <img src="./whychoose.png" alt="" width="60px" height="60px">
+                <p>We provide reliable, up-to-date news with a user-friendly platform, ensuring you stay informed and connected with the world, all in one place.</p>
+            </div>
+           
+        </div>
+    </div>
+    <div class="contact-us" id="Contact-us">
+        <div class="contact-us-section1">
+            <h2>Contact Us</h2>
+            <p>Have any questions? We'd love to hear from you.</p>
+            <img src="./conact-us1.png" alt="" width="100px" height="90px">
+        </div>
+        <div class="contact-us-section2">
+            <div class="contact-card">
+                <h3>Press</h3>
+                <img src="./press.png" alt="" width="90px" height="60px">
+                <p>Are you interested in our latest news or working on a Grammarly story and need to get in touch? You can visit our press page.</p>
+                <button class="btn-press">Visit Press Page</button>
+            </div>
+            <div class="contact-card">
+                <h3>Help & Support</h3>
+                <img src="./support.png" alt="" width="100" height="60px">
+                <p>Our support team is spread across the globe to answer your queries quickly.</p>
+                <button class="btn-support">Visit Support Page</button>
+                <a href="mailto:aryansray0987@gmail.com" class="submit-request">Submit a request</a>
+            </div>
+            <div class="contact-card">
+                 <h3>Sales</h3>
+                 <img src="./sales.png" alt="" width="100px" height="55px">
+                <p>Get in touch with our sales team to see how we can work together and manage the sales management</p>
+                <a href="tel:+919569952098"><button class="btn-sales">Contact-Sales</button></a>
+               
+            </div>
+        </div>
+    </div>
+    
+    <div class="footer1">
+        <div class="section1">
+            <div class="footer-box">
+                <div class="footer-box-heading">
+                   <div class="footer-img"></div>
+                    <h1>Flash Daily</h1>
+                </div>
+                <p>Subscribe to our best newsletters</p>
+                <button class="footer-button">SIGN UP TO SUBSCRIBE</button>
+
+            </div>
+            <div class="footer-box" id="box3">
+                <div class="mobile-app-section">
+                   
+                </div>
+                <div class="social-media-section">
+                    <h2>Follow Us :</h2>
+                    <div class="footer-icon">
+                       <a href="#instagram"> <i class="fa-brands fa-square-instagram fa-beat icon" style="color: #B197FC;"></i></a>
+                       <a href="facebook"> <i class="fa-brands fa-facebook fa-beat icon" style="color: #63E6BE;"></i></a>
+                    </div>
+                    <div class="footer-icon">
+                        <a href="#twitter"><i class="fa-brands fa-square-x-twitter fa-beat" style="color: #ff4133;"></i></a>
+                      <a href="#linkedin">  <i class="fa-brands fa-linkedin fa-beat"  style="color: #ffffff;"></i></a>
+                    </div>
+                </div>
+            </div>
+           
+        </div>
+      </div>
+      <div class="faded-line"></div>
+      <div class="footer2">
+        <div class="footer2-box">
+            <h2>Popular categories</h2>
+            <p><a href="">Sports News</a></p>
+            <p><a href="">Business News</a></p>
+
+            <p><a href="">India News</a></p>
+            <p><a href="">World News</a></p>
+            <p><a href="">Health+Tips</a></p>
+            <p><a href="">Technology News</a></p>
+        </div>
+        <div class="footer2-box">
+            <h2>Services</h2>
+            <p><a href="">CouponDunia</a></p>
+            <p><a href="">TechGig</a></p>
+
+            <p><a href="">TimesJobs</a></p>
+            <p><a href="">Gadgets</a></p>
+            <p><a href="">Times Mobile</a></p>
+            <p><a href=""> Work with us</a></p>
+        </div>
+      
+        <div class="footer2-box">
+            <h2>Hot On the Web</h2>
+            <p><a href="">Viral News</a></p>
+            <p><a href="">Salman Khan case</a></p>
+
+            <p><a href="">India News</a></p>
+            <p><a href="">BigBoss 18</a></p>
+            <p><a href="">Singham again box office collection</a></p>
+            <p><a href="">Technology News</a></p>
+        </div>
+
+        <div class="footer2-box">
+            <h2>Top Trends</h2>
+            <p><a href="">Parliament winter session</a></p>
+            <p><a href="">Wasim Akaram</a></p>
+
+            <p><a href="">Chennai school</a></p>
+            <p><a href="">Stock market today</a></p>
+            <p><a href="">Most nervous nineties</a></p>
+            <p><a href="">IPL 2025 sold and unsold player list</a></p>
+        </div>
+        <div class="footer2-box">
+            <h2>Latest News</h2>
+            <p><a href="">How do Biden,kamala and RAF ...</a></p>
+            <p><a href="">Winter strom distrupt winter plans...</a></p>
+
+            <p><a href="">Joint India-Srilanka navel...</a></p>
+            <p><a href="">Cinema Day explore ...</a></p>
+            <p><a href="">Singham again box office collection</a></p>
+            <p><a href="">FIFA nominees release...</a></p>
+            
+            
+      </div>
+    </div>
+<div class="faded-line"></div>
+<div class="footer3">
+    <div class="footer3-box">
+        <p>Copyright <i class="fa-regular fa-copyright icon"></i>2024 Flash Daily & Co.Ltd. All rights reserved</p>
+    </div>
+</div>
+
+     
+
+    
+    
+
+    <script src="app.js"></script>
+</body>
+</html>
